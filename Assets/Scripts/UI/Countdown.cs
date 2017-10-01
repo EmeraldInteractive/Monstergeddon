@@ -36,7 +36,7 @@ namespace Assets.Scripts.UI
             if (CurrentTime <= 0)
             {
                 CurrentTime = 0;
-                timerText.text = "0";
+                timerText.text = "Time's up!";
             }
             else
             {
