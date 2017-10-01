@@ -9,7 +9,7 @@ namespace Assets.Scripts.Player
 
         void LateUpdate()
         {
-            transform.Rotate(new Vector3(0, 0, Input.GetAxis("Mouse Y")) * Time.deltaTime * Speed);
+            transform.Rotate(new Vector3(0, 0, -Input.GetAxis("Mouse X")) * Time.deltaTime * Speed);
         }
     }
 }
