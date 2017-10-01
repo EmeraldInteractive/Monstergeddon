@@ -7,6 +7,9 @@ namespace Assets.Scripts.Player
     {
         CreateProjectile Fireball;
 
+        [SerializeField] float AttackDelay = 0.75f;
+        float AttackRate;
+
         private void Start()
         {
             Fireball = GetComponent<CreateProjectile>();
@@ -14,9 +17,13 @@ namespace Assets.Scripts.Player
 
         void Update()
         {
-            if(Input.GetButtonUp("Fire1"))
+            if (Input.GetButtonUp("Fire1"))
             {
-                Fireball.SpawnProjectile();
+                if (Time.time >= AttackRate)
+                {
+                    AttackRate = Time.time + AttackDelay;
+                    Fireball.SpawnProjectile();
+                }
             }
         }
     }
