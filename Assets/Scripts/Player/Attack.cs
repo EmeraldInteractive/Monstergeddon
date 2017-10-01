@@ -6,6 +6,10 @@ namespace Assets.Scripts.Player
     public class Attack : MonoBehaviour
     {
         CreateProjectile Fireball;
+        [SerializeField] AudioSource Source;
+
+        [SerializeField] float AttackDelay = 0.75f;
+        float AttackRate;
 
         private void Start()
         {
@@ -14,9 +18,14 @@ namespace Assets.Scripts.Player
 
         void Update()
         {
-            if(Input.GetButtonUp("Fire1"))
+            if (Input.GetButtonUp("Fire1"))
             {
-                Fireball.SpawnProjectile();
+                if (Time.time >= AttackRate)
+                {
+                    AttackRate = Time.time + AttackDelay;
+                    Fireball.SpawnProjectile();
+                    Source.Play();
+                }
             }
         }
     }

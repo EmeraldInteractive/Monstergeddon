@@ -33,8 +33,16 @@ namespace Assets.Scripts.UI
 
         void FixedUpdate()
         {
-            CurrentTime -= Time.deltaTime;
-            timerText.text = "Time: " + (int)CurrentTime;
+            if (CurrentTime <= 0)
+            {
+                CurrentTime = 0;
+                timerText.text = "Time's up!";
+            }
+            else
+            {
+                CurrentTime -= Time.deltaTime;
+                timerText.text = "Time: " + (int)CurrentTime;
+            }
         }
     }
 }

@@ -8,8 +8,7 @@ namespace Assets.Scripts.Player
         {
             if (other.gameObject.tag == "Floor" || other.gameObject.tag == "BuildingPart")
             {
-                Destroy(gameObject, 0.25f);
-                Debug.Log("Hit " + other.gameObject.tag);
+                Destroy(gameObject, 0.5f);
             }
         }
     }

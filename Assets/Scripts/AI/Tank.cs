@@ -7,6 +7,8 @@ namespace Assets.Scripts.AI
     {
         CreateProjectile Missle;
 
+        [SerializeField] AudioSource Source;
+
         [SerializeField] int Speed = 6;
 
         bool shouldMove;
@@ -30,7 +32,7 @@ namespace Assets.Scripts.AI
                 if (Time.time >= AttackRate)
                 {
                     AttackRate = Time.time + AttackDelay;
-                    Debug.Log("Fire!");
+                    Source.Play();
                     Missle.SpawnProjectile();
                 }
             }
